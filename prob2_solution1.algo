@@ -1,0 +1,42 @@
+ALGORITHM prob2_solution1
+VAR
+tab : ARRAY_OF INTEGER[50];
+tab1 : ARRAY_OF INTEGER[50];
+sum : INTEGER :=0;
+i,j,l1, l2 : INTEGER;
+  
+BEGIN
+
+REPEAT 
+    write("give length tab");
+    read(l1);
+UNTIL (l1>0)
+
+  FOR i FROM 0 TO l1-1 STEP 1  DO
+  REPEAT 
+        Write("give the element")
+        Read(tab[i])
+        UNTIL (tab[i]=='integer')
+    END_FOR
+
+    REPEAT 
+    write("give length tab1");
+    read(l2);
+UNTIL (l2>0 AND l2<l1)
+
+  FOR i FROM 0 TO l2-1 STEP 1  DO
+    REPEAT 
+        Write("give the element")
+        Read(tab1[i])
+            UNTIL (tab1[i]=='integer')
+    END_FOR
+
+
+   FOR i FROM 0 TO tab.length STEP 1  DO 
+    FOR j FROM 0 TO tab1.length STEP 1  DO
+        if (tab[i]==tab1[j])
+        sum+=tab[i];
+    END_FOR
+END_FOR
+write(sum);
+END

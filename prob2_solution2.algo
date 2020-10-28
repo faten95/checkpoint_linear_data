@@ -1,0 +1,58 @@
+ALGORITHM prob2_solution2
+VAR
+    tab : ARRAY_OF INTEGER[50];
+    tab : ARRAY_OF INTEGER[50];
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    l1, l2,i : INTEGER;
+    count,sum : INTEGER := 0;
+BEGIN
+
+REPEAT 
+    write("give length tab");
+    read(l1);
+UNTIL (l1>0)
+
+  FOR i FROM 0 TO l1-1 STEP 1  DO
+  REPEAT 
+        Write("give the element")
+        Read(tab[i])
+        UNTIL (tab[i]=='integer')
+    END_FOR
+
+    REPEAT 
+    write("give length tab1");
+    read(l2);
+UNTIL (l2>0)
+
+  FOR i FROM 0 TO l2-1 STEP 1  DO
+    REPEAT 
+        Write("give the element")
+        Read(tab1[i])
+            UNTIL (tab1[i]=='integer')
+    END_FOR
+//tab
+    FOR i FROM 0 TO tab.length-1 STEP 1  DO
+        IF (htab.lookup(tab[i])) THEN
+            count := htab.get(tab[i]);
+            htab.insert(tab[i],count+1);
+        ELSE
+            htab.insert(tab[i],1);
+        END_IF
+    END_FOR
+//tab1
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+        IF (htab.lookup(tab1[i])) THEN
+            count := htab.get(tab1[i]);
+            htab.insert(tab1[i],count+1);
+        ELSE
+            htab.insert(tab1[i],1);
+        END_IF
+    END_FOR
+    // the hash table 
+    FOR i FROM 0 TO htab.length-1 STEP 1  DO
+        IF ( htab.get(htab[i])> 1) THEN
+            sum+= htab[i];
+        END_IF
+    END_FOR
+    Write(sum)
+END
